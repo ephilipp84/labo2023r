@@ -70,7 +70,7 @@ ArbolesMontecarlo <- function(semillas, param_basicos) {
     semillas, # paso el vector de semillas, que debe ser el primer parametro de la funcion ArbolEstimarGanancia
     MoreArgs = list(param_basicos), # aqui paso el segundo parametro
     SIMPLIFY = FALSE,
-    mc.cores = 1
+    mc.cores = 5
   ) # se puede subir a 5 si posee Linux o Mac OS
 
   ganancia_promedio <- mean(unlist(ganancias))
@@ -105,14 +105,16 @@ cat(
   sep = "",
   "max_depth", "\t",
   "min_split", "\t",
-  "ganancia_promedio", "\n"
+  "ganancia_promedio", "\n",
+  "cp", "\t",
+  "minbucket", "\n"
 )
 
 
 # itero por los loops anidados para cada hiperparametro
 
-for (vmax_depth in c(4, 6, 8, 10, 12, 14)){
-  for (vmin_split in c(1000, 800, 600, 400, 200, 100, 50, 20, 10))  {
+for (vmax_depth in c(5, 6, 8, 10, 11, 12, 13)){
+  for (vmin_split in c(2000,1500,1000, 800, 600, 400, 200, 100, 50, 20, 10))  {
     for (vmin_bucket in c(200, 400, 600, 800, 1000, 1200)){
       for (vcp in c(1,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.1,0,-0.1))  {
     # notar como se agrega
@@ -135,5 +137,7 @@ for (vmax_depth in c(4, 6, 8, 10, 12, 14)){
       vmin_split, "\t",
       ganancia_promedio, "\n"
     )
+  }
+    }
   }
 }
