@@ -6,17 +6,18 @@ require("data.table")
 require("rpart")
 require("rpart.plot")
 
-setwd("~/buckets/b1/") # establezco la carpeta donde voy a trabajar
+# Aqui se debe poner la carpeta de la computadora local
+setwd("G:\\Otros ordenadores\\Mi Portátil\\GOOGLE DRIVE\\austral_posta\\MCD\\lab1\\datasets") # Establezco el Working Directory
 
-# cargo el dataset
-dataset <- fread("./datasets/dataset_pequeno.csv")
+# cargo los datos
+dataset <- fread("./dataset_pequeno.csv")
 
 dir.create("./exp/", showWarnings = FALSE)
 dir.create("./exp/EA4820/", showWarnings = FALSE)
 setwd("./exp/EA4820")
 
 # uso esta semilla para los canaritos
-set.seed(102191)
+set.seed(558109)
 
 # agrego los siguientes canaritos
 for (i in 1:30) dataset[, paste0("canarito", i) := runif(nrow(dataset))]
