@@ -8,10 +8,11 @@ gc() # Garbage Collection
 
 require("data.table")
 require("rpart")
+require("dplyr")
 
 # parmatros experimento
 PARAM <- list()
-PARAM$experimento <- 1593
+PARAM$experimento <- 7899
 
 # Establezco la semilla aleatoria, cambiar por SU primer semilla
 PARAM$semilla <- 558149
@@ -23,7 +24,6 @@ PARAM$rpart_param <- list(
   "minbucket" = 50,
   "maxdepth" = 14
 )
-
 
 			
 # parametros  arbol
@@ -55,7 +55,7 @@ setwd(carpeta_experimento)
 
 
 # que tamanos de ensemble grabo a disco, pero siempre debo generar los 500
-grabar <- c(1,10,20,50,100,200,500)
+grabar <- c(40, 50, 60, 70, 80,90,100,120,140,160,180,200,220,250, 280,320,360,420, 450, 500)
 #grabar <- c(1000,2000)
 
 
@@ -66,9 +66,17 @@ dapply <- dataset[foto_mes == 202109]
 # aqui se va acumulando la probabilidad del ensemble
 dapply[, prob_acumulada := 0]
 
+dtrain[, clase_binaria_2 := as.numeric(clase_ternaria != "CONTINUA")]
+
+dtrain <- select(dtrain, -clase_ternaria)
+
+dapply[, clase_binaria_2 := clase_ternaria]
+
+dapply <- select(dapply, -clase_ternaria)
+
 # Establezco cuales son los campos que puedo usar para la prediccion
 # el copy() es por la Lazy Evaluation
-campos_buenos <- copy(setdiff(colnames(dtrain), c("clase_ternaria")))
+campos_buenos <- copy(setdiff(colnames(dtrain), c("clase_binaria_2")))
 
 
 # Genero las salidas
@@ -84,9 +92,14 @@ for (arbolito in 1:PARAM$num_trees_max) {
   # separados por un signo de "+"
   # este hace falta para la formula
   campos_random <- paste(campos_random, collapse = " + ")
-
+  
   # armo la formula para rpart
-  formulita <- paste0("clase_ternaria ~ ", campos_random)
+  # formulita <- paste0("clase_ternaria ~ ", campos_random)
+  formulita <- paste0("clase_binaria_2 ~ ", campos_random)
+  
+  #################
+  dtrain2 <- dtrain
+  #################
 
   # genero el arbol de decision
   modelo <- rpart(formulita,
@@ -96,9 +109,10 @@ for (arbolito in 1:PARAM$num_trees_max) {
   )
 
   # aplico el modelo a los datos que no tienen clase
-  prediccion <- predict(modelo, dapply, type = "prob")
+  prediccion <- predict(modelo, dapply)
 
-  dapply[, prob_acumulada := prob_acumulada + prediccion[, "BAJA+2"]]
+  #dapply[, prob_acumulada := prob_acumulada + prediccion[, "BAJA+2"]]
+  dapply[, prob_acumulada := prob_acumulada + prediccion]
 
   if (arbolito %in% grabar) {
     # Genero la entrega para Kaggle

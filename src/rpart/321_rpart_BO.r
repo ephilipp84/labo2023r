@@ -18,7 +18,7 @@ require("mlrMBO")
 # Defino la  Optimizacion Bayesiana
 
 # cantidad de iteraciones de la Optimizacion Bayesiana
-kBO_iter <- 100
+kBO_iter <- 1000
 
 # la letra L al final de 1L significa ENTERO
 hs <- makeParamSet(
@@ -30,7 +30,7 @@ hs <- makeParamSet(
 )
 # minbuket NO PUEDE ser mayor que la mitad de minsplit
 
-ksemilla_azar <- 558121 # cambiar por la primer semilla
+ksemilla_azar <- 17 # cambiar por la primer semilla
 
 #------------------------------------------------------------------------------
 # graba a un archivo los componentes de lista
