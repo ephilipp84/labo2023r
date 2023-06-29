@@ -1,4 +1,4 @@
-# Experimentos Colaborativos Default
+# Experimentos Colaborativos Defaultut
 # Workflow  Training Strategy
 
 # limpio la memoria
@@ -28,7 +28,7 @@ PARAM$train$training <- c(
   202012, 202011, 202010, 202009, 202008, 202002, 202001, 201912, 201911,
   201910, 201909)
 
-#FIXXXXXX
+#FIXXXXXXut
 
 PARAM$train$validation <- c(202104, 202105)
 PARAM$train$testing <- c(202106,202107)
