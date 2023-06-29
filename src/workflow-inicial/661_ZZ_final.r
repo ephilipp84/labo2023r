@@ -392,3 +392,19 @@ cat(format(Sys.time(), "%Y%m%d %H%M%S"), "\n",
   file = "zRend.txt",
   append = TRUE
 )
+
+
+dir.create("./exp/", showWarnings = FALSE)
+dir.create("./exp/TERMINO/", showWarnings = FALSE)
+archivo_salida <- "./exp/HT2020/TERMINO.txt"
+
+cat(
+  file = archivo_salida,
+  sep = "",
+  "TERMINO", "\n",
+  "LOCOOO", 
+)
+
+
+
+
