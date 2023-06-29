@@ -60,7 +60,7 @@ PARAM$CanaritosAsesinos$desvios <- 4.0
 PARAM$CanaritosAsesinos$semilla <- 558149
 
 PARAM$home <- "~/buckets/b1/"
-# FIN Parametros del script
+# FIN Parametros del scriptt
 
 OUTPUT <- list()
 
