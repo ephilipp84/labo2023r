@@ -11,8 +11,8 @@ require("data.table")
 
 
 PARAM <- list()
-PARAM$learning_rate <- 0.3
-PARAM$num_iterations <- 5
+PARAM$learning_rate <- 0.1
+PARAM$num_iterations <- 50
 
 archivo <- "https://storage.googleapis.com/open-courses/austral2023r-e52a/AustralitosVirtualitos.txt"
 
