@@ -22,11 +22,11 @@ PARAM$experimento <- "FE6310"
 PARAM$exp_input <- "DR6210"
 
 PARAM$lag1 <- TRUE
-PARAM$lag2 <- TRUE
-PARAM$lag3 <- TRUE
+PARAM$lag2 <- FALSE
+PARAM$lag3 <- FALSE
 
-PARAM$Tendencias1$run <- FALSE
-PARAM$Tendencias1$ventana <- 4
+PARAM$Tendencias1$run <- TRUE
+PARAM$Tendencias1$ventana <- 3
 PARAM$Tendencias1$tendencia <- TRUE
 PARAM$Tendencias1$minimo <- FALSE
 PARAM$Tendencias1$maximo <- FALSE
@@ -53,12 +53,12 @@ PARAM$RandomForest$semilla <- 558149 # cambiar por la propia semilla
 
 
 # varia de 0.0 a 2.0, si es 0.0 NO se activan
-PARAM$CanaritosAsesinos$ratio <- 0.3
+PARAM$CanaritosAsesinos$ratio <- 0.4
 # recomendable 0.3
 
 
 # desvios estandar de la media, para el cutoff
-PARAM$CanaritosAsesinos$desvios <- 0.8
+PARAM$CanaritosAsesinos$desvios <- 1
 # recomendable menos de 1 ????
 # cantidad de desviaciones estandar en la elección del corte
 # de variables de los pajaritos asesinos
