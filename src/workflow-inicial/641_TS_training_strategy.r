@@ -22,21 +22,19 @@ PARAM$future <- c(202109)
 PARAM$final_train <- c(
   202107, 202106, 202105, 202104, 202103, 
   202102, 202101, 202012, 202011, 202010,
-  202009, 202008, 202007, 202006, 202005,
-  202002, 202001
+  202009, 202008, 202007, 202006, 202005
   )
 
 PARAM$train$training <- c(
-  202105, 202104, 202103, 202102, 202101,
-  202012, 202011, 202010, 202009, 202008,
-  202007, 202006, 202005, 202004, 202003,
-  202002, 202001, 201912, 201911
+  202103, 202102, 202101, 202012, 202011, 
+  202010, 202009, 202008, 202007, 202006, 
+  202005, 202004, 202003, 202002, 202001
   )
 
 #FIXXXXXXut
 
-PARAM$train$validation <- c(202106)
-PARAM$train$testing <- c(202107)
+PARAM$train$validation <- c(202105, 20214)
+PARAM$train$testing <- c(202107, 202106)
 
 # Atencion  0.1  de  undersampling de la clase mayoritaria,  los CONTINUA
 # 1.0 significa NO undersampling ,  0.1  es quedarse con el 10% de los CONTINUA

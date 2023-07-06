@@ -518,7 +518,7 @@ OUTPUT$train$periodos <- dataset[fold_train == 1, length(unique(foto_mes))]
 
 kvalidate <- FALSE
 ktest <- FALSE
-kcrossvalidation <- TRUE
+kcrossvalidation <- FALSE
 
 # Si hay que hacer validacion
 if (dataset[fold_train == 0 & fold_test == 0 & fold_validate == 1, .N] > 0) {
