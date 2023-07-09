@@ -11,26 +11,26 @@ require("yaml")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "WFV3hisTS6410"
+PARAM$experimento <- "WFV4notTS6410"
 
-PARAM$exp_input <- "WFV3hisFE6310"
+PARAM$exp_input <- "WFV4notFE6310"
 
 # me salteo los meses duros de pandemia, pero llego hasta 201907 en training
 # entreno en 18 meses
 
-PARAM$future <- c(202105)
+PARAM$future <- c(202104)
 PARAM$final_train <- c(
-  202103, 202102,
+  202102,
   202101, 202012, 202011, 202010
 )
 
 PARAM$train$training <- c(
-  202101, 202012, 
+  202012, 
   202011, 202010, 202009, 202008
 )
 
-PARAM$train$validation <- c(202102)
-PARAM$train$testing <- c(202103)
+PARAM$train$validation <- c(202101)
+PARAM$train$testing <- c(202102)
 
 # Atencion  0.1  de  undersampling de la clase mayoritaria,  los CONTINUA
 # 1.0 significa NO undersampling ,  0.1  es quedarse con el 10% de los CONTINUA
