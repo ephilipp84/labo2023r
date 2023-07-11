@@ -76,7 +76,7 @@ PARAM$lgb_basicos <- list(
 PARAM$bo_lgb <- makeParamSet(
   makeNumericParam("learning_rate", lower = 0.0, upper = 0.047101734024094
 ),
-  makeNumericParam("feature_fraction", lower = 0.0, upper = 0,191275942952541
+  makeNumericParam("feature_fraction", lower = 0.0, upper = 0.191275942952541
 ),
   makeIntegerParam("num_leaves", lower = 833L, upper = 1089L),
   makeIntegerParam("min_data_in_leaf", lower = 0L, upper = 4377L)
