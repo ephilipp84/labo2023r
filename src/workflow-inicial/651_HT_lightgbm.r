@@ -34,7 +34,7 @@ PARAM$exp_input <- "TS6410"
 # En caso que se haga cross validation, se usa esta cantidad de folds
 PARAM$lgb_crossvalidation_folds <- 5
 
-PARAM$lgb_semilla <- 558149 # cambiar por su propia semilla
+PARAM$lgb_semilla <- 2 # cambiar por su propia semilla
 
 
 # Hiperparametros FIJOS de  lightgbm
@@ -47,11 +47,11 @@ PARAM$lgb_basicos <- list(
   feature_pre_filter = FALSE,
   force_row_wise = TRUE, # para reducir warnings
   verbosity = -100,
-  max_depth = -1L, # -1 significa no limitar,  por ahora lo dejo fijo
-  min_gain_to_split = 0.0, # min_gain_to_split >= 0.0
+  max_depth = 12L, # -1 significa no limitar,  por ahora lo dejo fijo
+  #min_gain_to_split = 0.0, # min_gain_to_split >= 0.0
   min_sum_hessian_in_leaf = 0.001, #  min_sum_hessian_in_leaf >= 0.0
-  lambda_l1 = 0.0, # lambda_l1 >= 0.0
-  lambda_l2 = 0.0, # lambda_l2 >= 0.0
+  #lambda_l1 = 0.0, # lambda_l1 >= 0.0
+  #lambda_l2 = 0.0, # lambda_l2 >= 0.0
   max_bin = 31L, # lo debo dejar fijo, no participa de la BO
   num_iterations = 9999, # un numero muy grande, lo limita early_stopping_rounds
 
@@ -74,8 +74,11 @@ PARAM$lgb_basicos <- list(
 # Aqui se cargan los hiperparametros que se optimizan
 #  en la Bayesian Optimization
 PARAM$bo_lgb <- makeParamSet(
-  makeNumericParam("learning_rate", lower = 0.02, upper = 0.3),
-  makeNumericParam("feature_fraction", lower = 0.01, upper = 1.0),
+  makeNumericParam("learning_rate", lower = 0.05, upper = 0.3),
+  makeNumericParam("lambda_l1", lower = 150, upper = 300),
+  makeNumericParam("lambda_l2", lower = 250, upper = 400),
+  makeNumericParam("min_gain_to_split", lower = 3, upper = 5),
+  makeNumericParam("feature_fraction", lower = 0.0, upper = 1.0),
   makeIntegerParam("num_leaves", lower = 8L, upper = 1024L),
   makeIntegerParam("min_data_in_leaf", lower = 100L, upper = 50000L)
 )
@@ -518,7 +521,7 @@ OUTPUT$train$periodos <- dataset[fold_train == 1, length(unique(foto_mes))]
 
 kvalidate <- FALSE
 ktest <- FALSE
-kcrossvalidation <- TRUE
+kcrossvalidation <- FALSE
 
 # Si hay que hacer validacion
 if (dataset[fold_train == 0 & fold_test == 0 & fold_validate == 1, .N] > 0) {
