@@ -10,7 +10,7 @@ require("yaml")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "CAkg27110"
+PARAM$experimento <- "CAkg227110"
 PARAM$dataset <- "./datasets/competencia_2023.csv.gz"
 
 # valores posibles
