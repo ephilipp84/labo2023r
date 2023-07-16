@@ -26,7 +26,7 @@ PARAM$exp_input <- "HTkg217510"
 
 for (w in 1:100){
 
-string1 = "res/ZZkg217710"
+string1 = "res\\ZZkg217710"
 string2 = as.character(w)
   
 # concatenate two strings using separator

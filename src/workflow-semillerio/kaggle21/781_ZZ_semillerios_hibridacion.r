@@ -30,7 +30,7 @@ PARAM$exp_input = c()
 
 for (w in 1:100){
   
-  string1 = "res/ZZkg217710"
+  string1 = "res\\kg217710"
   string2 = as.character(w)
   
   # concatenate two strings using separator
