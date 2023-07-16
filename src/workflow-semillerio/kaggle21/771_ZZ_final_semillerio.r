@@ -26,7 +26,7 @@ PARAM$exp_input <- "HTkg217510"
 
 for (w in 1:100){
 
-string1 = "res\\ZZkg217710"
+string1 = "ZZkg217710"
 string2 = as.character(w)
   
 # concatenate two strings using separator
@@ -47,9 +47,9 @@ set.seed(semilla)
 
 PARAM$semilla_primos <- sample(primos)[1:1]
 
-PARAM$kaggle$envios_desde <- 10100L
-PARAM$kaggle$envios_hasta <- 11900L
-PARAM$kaggle$envios_salto <- 100L
+PARAM$kaggle$envios_desde <- 10000L
+PARAM$kaggle$envios_hasta <- 11500L
+PARAM$kaggle$envios_salto <- 75L
 
 PARAM$graficar$envios_hasta <- 20000L # para el caso que deba graficar
 PARAM$graficar$ventana_suavizado <- 2001L
