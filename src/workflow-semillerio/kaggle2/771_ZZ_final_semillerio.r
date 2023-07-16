@@ -24,32 +24,11 @@ PARAM <- list()
 PARAM$exp_input <- "HTkg27510"
 
 
-for (w in 1:100){
+PARAM$experimento = "ZZkg27710"
 
-string1 = "ZZkg27710"
-string2 = as.character(w)
-  
-# concatenate two strings using separator
-PARAM$experimento = paste(string1, string2, sep = "X")
-  
-# Que modelos quiero, segun su posicion en el ranking
-# de la Bayesian Optimizacion, ordenado por ganancia descendente
-PARAM$modelos_rank <- c(1)
-
-# cantidad de semillas a utilizar en el semillerio,
-#  podrian ser 50 o 100 para mayor estabilidad
-#  semillerio <- 1  es el ZZ_final  tradicional
-PARAM$semillerio <- 50
-
-# se utiliza para generar el vector de  PARAM$semillerio  semillas
-primos <- generate_primes(min = 100000, max = 1000000)
-set.seed(semilla)
-
-PARAM$semilla_primos <- sample(primos)[1:1]
-
-PARAM$kaggle$envios_desde <- 10000L
-PARAM$kaggle$envios_hasta <- 11500L
-PARAM$kaggle$envios_salto <- 75L
+PARAM$kaggle$envios_desde <- 9850L
+PARAM$kaggle$envios_hasta <- 11560L
+PARAM$kaggle$envios_salto <- 90L
 
 PARAM$graficar$envios_hasta <- 20000L # para el caso que deba graficar
 PARAM$graficar$ventana_suavizado <- 2001L
@@ -430,4 +409,3 @@ cat(format(Sys.time(), "%Y%m%d %H%M%S"), "\n",
   append = TRUE
 )
 
-}
