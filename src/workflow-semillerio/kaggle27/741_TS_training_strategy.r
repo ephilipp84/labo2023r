@@ -11,9 +11,9 @@ require("yaml")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "TSkg247410"
+PARAM$experimento <- "TSkg277410"
 
-PARAM$exp_input <- "FEkg247310"
+PARAM$exp_input <- "FEkg277310"
 
 # me salteo los meses duros de pandemia, pero llego hasta 201907 en training
 # entreno en 18 meses
@@ -25,8 +25,8 @@ PARAM$final_train <- c(
 )
 
 PARAM$train$training <- c(
-  202104, 202103, 202102, 202101,
-  202012, 202011, 202010
+  202105, 202104, 202103, 202102, 202101,
+  202012, 202011, 202010, 202009, 202008
 )
 
 PARAM$train$validation <- c(202106)
