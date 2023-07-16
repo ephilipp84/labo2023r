@@ -17,7 +17,7 @@ require("yaml")
 
 require("lightgbm")
 
-semilla <- 558109
+
 
 # Parametros del script
 PARAM <- list()
@@ -25,6 +25,8 @@ PARAM$exp_input <- "HTkg247510"
 
 
 PARAM$experimento = "ZZkg247710"
+
+PARAM$semilla_primos <- 558109
 
 PARAM$kaggle$envios_desde <- 9850L
 PARAM$kaggle$envios_hasta <- 11560L
