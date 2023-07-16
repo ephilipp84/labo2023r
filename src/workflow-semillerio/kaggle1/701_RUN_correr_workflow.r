@@ -17,4 +17,4 @@ source("~/labo2023r/src/workflow-semillerio/kaggle1/751_HT_lightgbm.r")
 
 
 source("~/labo2023r/src/workflow-semillerio/kaggle1/771_ZZ_final_semillerio.r")
-source("~/labo2023r/src/workflow-semillerio/kaggle1/781_ZZ_semillerios_hibridacion.r")
+#source("~/labo2023r/src/workflow-semillerio/kaggle1/781_ZZ_semillerios_hibridacion.r")
