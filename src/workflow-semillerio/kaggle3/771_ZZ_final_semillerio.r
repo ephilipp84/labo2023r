@@ -17,12 +17,21 @@ require("yaml")
 
 require("lightgbm")
 
+semilla <- 558109
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "ZZkg37710"
 PARAM$exp_input <- "HTkg37510"
 
+
+for (w in 1:100){
+
+string1 = "ZZkg37710"
+string2 = as.character(w)
+  
+# concatenate two strings using separator
+PARAM$experimento = paste(string1, string2, sep = "X")
+  
 # Que modelos quiero, segun su posicion en el ranking
 # de la Bayesian Optimizacion, ordenado por ganancia descendente
 PARAM$modelos_rank <- c(1)
@@ -33,11 +42,14 @@ PARAM$modelos_rank <- c(1)
 PARAM$semillerio <- 50
 
 # se utiliza para generar el vector de  PARAM$semillerio  semillas
-PARAM$semilla_primos <- 558109
+primos <- generate_primes(min = 100000, max = 1000000)
+set.seed(semilla)
 
-PARAM$kaggle$envios_desde <- 10300L
-PARAM$kaggle$envios_hasta <- 11800L
-PARAM$kaggle$envios_salto <- 100L
+PARAM$semilla_primos <- sample(primos)[1:1]
+
+PARAM$kaggle$envios_desde <- 10000L
+PARAM$kaggle$envios_hasta <- 11500L
+PARAM$kaggle$envios_salto <- 75L
 
 PARAM$graficar$envios_hasta <- 20000L # para el caso que deba graficar
 PARAM$graficar$ventana_suavizado <- 2001L
@@ -418,3 +430,4 @@ cat(format(Sys.time(), "%Y%m%d %H%M%S"), "\n",
   append = TRUE
 )
 
+}

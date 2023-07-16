@@ -13,4 +13,8 @@ source("~/labo2023r/src/workflow-semillerio/kaggle1/721_DR_corregir_drifting.r")
 source("~/labo2023r/src/workflow-semillerio/kaggle1/731_FE_historia.r")
 source("~/labo2023r/src/workflow-semillerio/kaggle1/741_TS_training_strategy.r")
 source("~/labo2023r/src/workflow-semillerio/kaggle1/751_HT_lightgbm.r")
+
+
+
 source("~/labo2023r/src/workflow-semillerio/kaggle1/771_ZZ_final_semillerio.r")
+source("~/labo2023r/src/workflow-semillerio/kaggle1/781_ZZ_semillerios_hibridacion.r")

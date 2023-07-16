@@ -24,14 +24,28 @@ require("lightgbm")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "HB7810"
+PARAM$experimento <- "HBkg27810"
+
+PARAM$exp_input = c()
+
+for (w in 1:100){
+  
+  string1 = "ZZkg27710"
+  string2 = as.character(w)
+  
+  # concatenate two strings using separator
+  string3 = paste(string1, string2, sep = "X")
+
+  PARAM$exp_input = append(PARAM$exp_input,string3)
+
+}
 
 # el inpput deben ser semillerios
-PARAM$exp_input <- c("ZZ7710-01", "ZZ7710-66", "ZZ7710-53", "ZZ7710-52")
+#PARAM$exp_input <- c("ZZ7710-01", "ZZ7710-66", "ZZ7710-53", "ZZ7710-52")
 
-PARAM$kaggle$envios_desde <- 9500L
+PARAM$kaggle$envios_desde <- 10000L
 PARAM$kaggle$envios_hasta <- 11500L
-PARAM$kaggle$envios_salto <- 500L
+PARAM$kaggle$envios_salto <- 75L
 
 PARAM$graficar$envios_hasta <- 20000L # para el caso que deba graficar
 PARAM$graficar$ventana_suavizado <- 2001L
