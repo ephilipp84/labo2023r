@@ -25,12 +25,12 @@ PARAM$lag1 <- TRUE
 PARAM$lag2 <- TRUE
 PARAM$lag3 <- TRUE
 
-PARAM$Tendencias1$run <- FALSE
+PARAM$Tendencias1$run <- TRUE
 PARAM$Tendencias1$ventana <- 4
 PARAM$Tendencias1$tendencia <- TRUE
 PARAM$Tendencias1$minimo <- FALSE
 PARAM$Tendencias1$maximo <- FALSE
-PARAM$Tendencias1$promedio <- FALSE
+PARAM$Tendencias1$promedio <- TRUE
 PARAM$Tendencias1$ratioavg <- FALSE
 PARAM$Tendencias1$ratiomax <- FALSE
 
@@ -45,11 +45,11 @@ PARAM$Tendencias2$ratiomax <- FALSE
 
 
 PARAM$RandomForest$run <- TRUE
-PARAM$RandomForest$num.trees <- 15
-PARAM$RandomForest$max.depth <- 3
+PARAM$RandomForest$num.trees <- 20
+PARAM$RandomForest$max.depth <- 4
 PARAM$RandomForest$min.node.size <- 1000
 PARAM$RandomForest$mtry <- 40
-PARAM$RandomForest$semilla <- 558149 # cambiar por la propia semilla
+PARAM$RandomForest$semilla <- 2 # cambiar por la propia semilla
 
 
 # varia de 0.0 a 2.0, si es 0.0 NO se activan
@@ -58,13 +58,13 @@ PARAM$CanaritosAsesinos$ratio <- 0.3
 
 
 # desvios estandar de la media, para el cutoff
-PARAM$CanaritosAsesinos$desvios <- 0.8
+PARAM$CanaritosAsesinos$desvios <- 1
 # recomendable menos de 1 ????
 # cantidad de desviaciones estandar en la elección del corte
 # de variables de los pajaritos asesinos
 
 # cambiar por la propia semilla
-PARAM$CanaritosAsesinos$semilla <- 558149
+PARAM$CanaritosAsesinos$semilla <- 2
 
 PARAM$home <- "~/buckets/b1/"
 # FIN Parametros del script
@@ -349,7 +349,7 @@ GVEZ <- 1
 
 CanaritosAsesinos <- function(
     canaritos_ratio = 0.2,
-    canaritos_desvios = 3.0, canaritos_semilla = 999983) {
+    canaritos_desvios = 3.0, canaritos_semilla = 17) {
   gc()
   dataset[, clase01 := ifelse(clase_ternaria == "CONTINUA", 0, 1)]
 
