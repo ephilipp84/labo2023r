@@ -21,7 +21,7 @@ require("lightgbm")
 PARAM <- list()
 PARAM$exp_input <- "HTkg17510"
 
-
+PARAM$semillerio <- 50
 PARAM$experimento = "ZZkg17710"
 
 PARAM$kaggle$envios_desde <- 9850L

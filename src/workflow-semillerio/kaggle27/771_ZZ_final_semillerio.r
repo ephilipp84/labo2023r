@@ -20,7 +20,7 @@ require("lightgbm")
 # Parametros del script
 PARAM <- list()
 PARAM$exp_input <- "HTkg277510"
-
+PARAM$semillerio <- 50
 
 PARAM$experimento = "ZZkg277710"
 
