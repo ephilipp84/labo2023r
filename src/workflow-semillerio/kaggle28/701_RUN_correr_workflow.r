@@ -6,8 +6,6 @@ options(error = function() {
   stop("exiting after script error")
 })
 
-source("~/labo2023r/src/workflow-semillerio/kaggle25/771_ZZ_final_semillerio.r")
-
 # corrida de cada paso del workflow
 source("~/labo2023r/src/workflow-semillerio/kaggle28/711_CA_reparar_dataset.r")
 source("~/labo2023r/src/workflow-semillerio/kaggle28/721_DR_corregir_drifting.r")
