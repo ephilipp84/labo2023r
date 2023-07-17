@@ -19,17 +19,25 @@ require("lightgbm")
 
 
 # Parametros del script
-# Parametros del script
 PARAM <- list()
 PARAM$exp_input <- "HTkg27510"
-
-PARAM$semillerio <- 50
 PARAM$experimento = "ZZkg27710"
+
+# Que modelos quiero, segun su posicion en el ranking
+# de la Bayesian Optimizacion, ordenado por ganancia descendente
+PARAM$modelos_rank <- c(1)
+
+# cantidad de semillas a utilizar en el semillerio,
+#  podrian ser 50 o 100 para mayor estabilidad
+#  semillerio <- 1  es el ZZ_final  tradicional
+PARAM$semillerio <- 50
+
+# se utiliza para generar el vector de  PARAM$semillerio  semillas
+PARAM$semilla_primos <- 558109
 
 PARAM$kaggle$envios_desde <- 9850L
 PARAM$kaggle$envios_hasta <- 11560L
 PARAM$kaggle$envios_salto <- 90L
-PARAM$semilla_primos <- 558109
 
 PARAM$graficar$envios_hasta <- 20000L # para el caso que deba graficar
 PARAM$graficar$ventana_suavizado <- 2001L
@@ -409,4 +417,3 @@ cat(format(Sys.time(), "%Y%m%d %H%M%S"), "\n",
     file = "zRend.txt",
     append = TRUE
 )
-
