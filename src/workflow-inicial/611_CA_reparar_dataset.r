@@ -17,7 +17,7 @@ PARAM$dataset <- "./datasets/competencia_2023.csv.gz"
 #  "MachineLearning"  "EstadisticaClasica" "Ninguno"
 
 
-PARAM$metodo <- "EstadisticaClasica"
+PARAM$metodo <- "MachineLearning"
 PARAM$home <- "~/buckets/b1/"
 
 # FIN Parametros del script
