@@ -11,24 +11,27 @@ require("yaml")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "TSkg287410"
+PARAM$experimento <- "TSkg29017410"
 
-PARAM$exp_input <- "FEkg287310"
+PARAM$exp_input <- "FEkg29017310"
 
 # me salteo los meses duros de pandemia, pero llego hasta 201907 en training
 # entreno en 18 meses
 
+
+
+
 PARAM$future <- c(202109)
 PARAM$final_train <- c(
   202107, 202106, 202105, 202104, 202103, 202102,
-  202101, 202012, 202011, 202010, 202009, 202008,
-  202002, 202001, 201912, 201911, 201910
+  202101, 202012, 202011, 202010, 202009, 202008, 202002, 202001, 201912,
+  201911, 201910, 201909, 201908, 201907, 201906
 )
 
 PARAM$train$training <- c(
   202105, 202104, 202103, 202102, 202101,
-  202012, 202011, 202010, 202009, 202008,
-  202002, 202001, 201912, 201911, 201910, 201909, 201908
+  202012, 202011, 202010, 202009, 202008, 202002, 202001, 201912, 201911,
+  201910, 201909, 201908, 201907, 201906, 201905, 201904
 )
 
 PARAM$train$validation <- c(202106)
@@ -36,9 +39,9 @@ PARAM$train$testing <- c(202107)
 
 # Atencion  0.4  de  undersampling de la clase mayoritaria,  los CONTINUA
 # 1.0 significa NO undersampling ,  0.1  es quedarse con el 10% de los CONTINUA
-PARAM$train$undersampling <- 0.4
+PARAM$train$undersampling <- 0.35
 
-PARAM$train$semilla <- 558109 # cambiar por su propia semilla  !!!
+PARAM$train$semilla <- 13 # cambiar por su propia semilla  !!!
 
 PARAM$home <- "~/buckets/b1/"
 # FIN Parametros del script

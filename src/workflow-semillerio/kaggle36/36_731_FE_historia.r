@@ -17,16 +17,16 @@ require("lightgbm")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "FEkg287310"
+PARAM$experimento <- "FEkg367310"
 
-PARAM$exp_input <- "DRkg287210"
+PARAM$exp_input <- "DRkg367210"
 
 PARAM$lag1 <- TRUE
 PARAM$lag2 <- TRUE
 PARAM$lag3 <- FALSE
 
 PARAM$Tendencias1$run <- TRUE
-PARAM$Tendencias1$ventana <- 6
+PARAM$Tendencias1$ventana <- 3
 PARAM$Tendencias1$tendencia <- TRUE
 PARAM$Tendencias1$minimo <- FALSE
 PARAM$Tendencias1$maximo <- FALSE
@@ -53,11 +53,11 @@ PARAM$RandomForest$semilla <- 558109 # cambiar por la propia semilla
 
 
 # varia de 0.0 a 2.0, si es 0.0 NO se activan
-PARAM$CanaritosAsesinos$ratio <- 2/3
+PARAM$CanaritosAsesinos$ratio <- 0.75
 # desvios estandar de la media, para el cutoff
-PARAM$CanaritosAsesinos$desvios <- 1.5
+PARAM$CanaritosAsesinos$desvios <- 2.0
 # cambiar por la propia semilla
-PARAM$CanaritosAsesinos$semilla <- 17
+PARAM$CanaritosAsesinos$semilla <- 7
 
 PARAM$home <- "~/buckets/b1/"
 # FIN Parametros del script

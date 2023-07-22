@@ -27,9 +27,9 @@ options(error = function() {
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "HTkg287510"
+PARAM$experimento <- "HTkg337510"
 
-PARAM$exp_input <- "TSkg287410"
+PARAM$exp_input <- "TSkg337410"
 
 # En caso que se haga cross validation, se usa esta cantidad de folds
 PARAM$lgb_crossvalidation_folds <- 5
@@ -39,7 +39,7 @@ PARAM$lgb_semilla <- 558109 # cambiar por su propia semilla
 
 # Hiperparametros FIJOS de  lightgbm
 PARAM$lgb_basicos <- list(
-  boosting = "dart", # puede ir  dart  , ni pruebe random_forest
+  boosting = "gbdt", # puede ir  dart  , ni pruebe random_forest
   objective = "binary",
   metric = "custom",
   first_metric_only = TRUE,
@@ -52,10 +52,10 @@ PARAM$lgb_basicos <- list(
   min_sum_hessian_in_leaf = 0.001, #  min_sum_hessian_in_leaf >= 0.0
   lambda_l1 = 0.0, # lambda_l1 >= 0.0
   lambda_l2 = 0.0, # lambda_l2 >= 0.0
-  max_bin = 127L, # lo debo dejar fijo, no participa de la BO
+  max_bin = 31L, # lo debo dejar fijo, no participa de la BO
   num_iterations = 9999, # un numero muy grande, lo limita early_stopping_rounds
 
-  #bagging_fraction = 1.0, # 0.0 < bagging_fraction <= 1.0
+  bagging_fraction = 1.0, # 0.0 < bagging_fraction <= 1.0
   pos_bagging_fraction = 1.0, # 0.0 < pos_bagging_fraction <= 1.0
   neg_bagging_fraction = 1.0, # 0.0 < neg_bagging_fraction <= 1.0
   is_unbalance = FALSE, #
@@ -74,11 +74,10 @@ PARAM$lgb_basicos <- list(
 # Aqui se cargan los hiperparametros que se optimizan
 #  en la Bayesian Optimization
 PARAM$bo_lgb <- makeParamSet(
-  makeNumericParam("learning_rate", lower = 0.02, upper = 0.1),
-  makeNumericParam("bagging_fraction", lower = 0.0, upper = 1.0),
+  makeNumericParam("learning_rate", lower = 0.02, upper = 0.2),
   makeNumericParam("feature_fraction", lower = 0.01, upper = 1.0),
   makeIntegerParam("num_leaves", lower = 8L, upper = 1024L),
-  makeIntegerParam("min_data_in_leaf", lower = 100L, upper = 15000L)
+  makeIntegerParam("min_data_in_leaf", lower = 100L, upper = 25000L)
 )
 
 
