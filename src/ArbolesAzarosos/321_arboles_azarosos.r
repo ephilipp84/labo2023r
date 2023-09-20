@@ -2,6 +2,10 @@
 # utilizando el naif metodo de Arboles Azarosos
 # entreno cada arbol utilizando un subconjunto distinto de atributos del dataset
 
+
+
+
+
 # limpio la memoria
 rm(list = ls()) # Borro todos los objetos
 gc() # Garbage Collection
